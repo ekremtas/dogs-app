@@ -1,12 +1,12 @@
 import React from 'react';
 import dogs from "../dogsdata";
-import {Button} from "reactstrap";
 import FavoriteActions from "../components/FavoriteActions";
 import Dog from "../components/Dog";
 import axios from "axios";
+import { Container } from 'reactstrap';
 
 
-const apiHost = "MOCK API URL";
+const apiHost = "https://5ea5689e2d86f00016b45bf7.mockapi.io";
 
 class Homepage extends React.Component {
     constructor(props){
@@ -14,7 +14,8 @@ class Homepage extends React.Component {
 
         this.state = {
             favorites: [],
-            loadingFavorites: false
+            loadingFavorites: false,
+            buttonLoading: false,
         }
     }
     componentDidMount() {
@@ -42,10 +43,14 @@ class Homepage extends React.Component {
 
     toggle = (dogId)=>{
         const foundDog = this.state.favorites.find((favorite) => favorite.dogId === dogId);
+        this.setState({
+            buttonLoading: true
+        })
         if(foundDog){
             axios.delete(`${apiHost}/favorites/${foundDog.id}`).then((result) => {
                 this.setState(({
-                    favorites: this.state.favorites.filter((dog) => dog.dogId !== dogId)
+                    favorites: this.state.favorites.filter((dog) => dog.dogId !== dogId),
+                    buttonLoading: false
                 }))
             }).catch((err) => {
                 console.log(err);
@@ -57,7 +62,8 @@ class Homepage extends React.Component {
             }).then((result) => {
                 const eklenenFavori = result.data; // {id: 1, dogId: benim yolladigim dog id, createdat: date}
                 this.setState({
-                    favorites: [...this.state.favorites, eklenenFavori]
+                    favorites: [...this.state.favorites, eklenenFavori],
+                    buttonLoading: false
                 })
             }).catch((err) => {
                 console.log(err);
@@ -77,15 +83,15 @@ class Homepage extends React.Component {
             </div>
         }
         return (
-            <div>
+            <Container>
                 <ul>
                     {
                         dogs.map((dog) => {
-                            return <Dog toggle={this.toggle} id={dog.id} getStatus={this.getStatus} {...dog}/>
+                            return <Dog buttonLoading={this.state.buttonLoading} toggle={this.toggle} id={dog.id} getStatus={this.getStatus} {...dog}/>
                         })
                     }
                 </ul>
-            </div>
+            </Container>
         );
     }
 }

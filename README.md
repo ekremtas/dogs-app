@@ -11,9 +11,16 @@ Bundan sonra API_HOST degiskenini kendi urliniz ile sonunda / olmadan degistirin
 # Odevler
 
  - Homepage'de tum kopek isimlerini listelerken, her kopek isminin bir Link haline getirilmesi ve linklere tiklandiginda "/detail/{kopekid}" urline gitmesi, bu urlde de ilgili kopegin image, tur, isim gibi kalan tum detaylarini gosterecegiz.
+
+ - burası halledildi 
+
  - Bildiginiz uzere bu projede reacstrap kullandik. Siz de odevi yaparken reactstrap componentlerini kullanabilirsiniz stil acisindan daha guzel gozukmesi acisindan.
+
+  - burada reactstrap ile biraz görsellik kattım. 
+
  - Favoriye ekleme-cikarma islemleri backendden oldugu icin bir bekleme suremiz var. bu bekleme sirasinda butonun disaboled olmasini islem bittikten sonra yeniden aktif olmasini bekliyorum
  
+- burada da bir state ekledim loading oldugunda buttonlara spinner getirdim.
 
 ## Kaynaklar
 
