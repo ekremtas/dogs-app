@@ -14,18 +14,13 @@ import {
 
 const Dog = ({ id, name, toggle, getStatus, image , buttonLoading}) => {
   return (
-    <li
-      key={id}
-      style={{
-        margin: "15px",
-        listStyleType: "none",
-      }}
-    >
+    
+    <Col xs={12} md={6} xl={3} key={id}>
       <Card>
         <CardBody>
           <CardTitle>{name}</CardTitle>
         </CardBody>
-        <CardImg top width="100%" src={image} alt={name + " image"} />
+        <CardImg top width="100%" src={image} alt={name + " image"} className="dogImg" />
         <CardBody>
           <CardText
             style={{
@@ -46,7 +41,7 @@ const Dog = ({ id, name, toggle, getStatus, image , buttonLoading}) => {
           </Row>
         </CardBody>
       </Card>
-    </li>
+      </Col>
   );
 };
 

@@ -1,9 +1,8 @@
 import React from "react";
 import dogs from "../dogsdata";
-import FavoriteActions from "../components/FavoriteActions";
 import Dog from "../components/Dog";
 import axios from "axios";
-import { Container } from "reactstrap";
+import { Container , Row} from "reactstrap";
 
 const apiHost = "https://5ea5689e2d86f00016b45bf7.mockapi.io";
 
@@ -14,7 +13,7 @@ class Homepage extends React.Component {
     this.state = {
       favorites: [],
       loadingFavorites: false,
-      buttonLoading: false,
+      buttonLoading: [],
     };
   }
   componentDidMount() {
@@ -52,7 +51,7 @@ class Homepage extends React.Component {
     );
     this.setState(
       {
-        buttonLoading: true,
+        buttonLoading: [...this.state.buttonLoading, dogId],
       },
       () => {
         if (foundDog) {
@@ -63,7 +62,9 @@ class Homepage extends React.Component {
                 favorites: this.state.favorites.filter(
                   (dog) => dog.dogId !== dogId
                 ),
-                buttonLoading: false,
+                buttonLoading: [this.state.buttonloading].filter((buttonId) => {
+                  return buttonId !== dogId;
+                }),
               });
             })
             .catch((err) => {
@@ -79,7 +80,9 @@ class Homepage extends React.Component {
               const eklenenFavori = result.data; // {id: 1, dogId: benim yolladigim dog id, createdat: date}
               this.setState({
                 favorites: [...this.state.favorites, eklenenFavori],
-                buttonLoading: false,
+                buttonLoading: [this.state.buttonloading].filter((buttonId) => {
+                  return buttonId !== dogId;
+                }),
               });
             })
             .catch((err) => {
@@ -107,19 +110,19 @@ class Homepage extends React.Component {
     }
     return (
       <Container>
-        <ul>
-          {dogs.map((dog) => {
-            return (
-              <Dog
-                buttonLoading={this.state.buttonLoading}
-                toggle={this.toggle}
-                id={dog.id}
-                getStatus={this.getStatus}
-                {...dog}
-              />
-            );
-          })}
-        </ul>
+        <Row xs="12">
+            {dogs.map((dog) => {
+              return (
+                <Dog
+                  buttonLoading={this.state.buttonLoading}
+                  toggle={this.toggle}
+                  id={dog.id}
+                  getStatus={this.getStatus}
+                  {...dog}
+                />
+              );
+            })}
+        </Row>
       </Container>
     );
   }

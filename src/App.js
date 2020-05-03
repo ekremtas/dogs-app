@@ -3,6 +3,8 @@ import "bootstrap/dist/css/bootstrap.css";
 import Header from "./Header";
 import { Switch, Route } from "react-router-dom";
 import routes from "./routes";
+import './App.css';
+
 class App extends React.Component {
   render() {
     return (

@@ -2,7 +2,9 @@ import React from "react";
 import { Button, Spinner } from "reactstrap";
 
 const FavoriteActions = (props) => {
-  if (props.buttonLoading) {
+  if (props.buttonLoading.find((id)=>{
+    return id === props.id
+  })) {
     return <Spinner color="success" />;
   } else
     return (

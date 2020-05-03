@@ -1,4 +1,4 @@
-import React, { Img } from "react";
+import React from "react";
 import dogs from "../dogsdata";
 import {
   Row,
@@ -8,11 +8,16 @@ import {
   CardText,
   CardBody,
   CardTitle,
-  CardLink,
+  CardSubtitle,
 } from "reactstrap";
 const Detail = (props) => {
   const dogId = props.match.params.dogId;
   const selectedDogs = dogs.find((dog) => dog.id === dogId);
+  if (!selectedDogs) {
+    return (
+      <div className="h1 alert">{`${dogId} numaralı olan köpeğe ulaşılamadı.`}</div>
+    );
+  }
   return (
     <>
       <Row
@@ -23,7 +28,8 @@ const Detail = (props) => {
         <Col md={{ size: 10, offset: 1 }}>
           <Card>
             <CardBody>
-              <CardTitle>{selectedDogs.name}</CardTitle>
+              <CardTitle className="h1">{selectedDogs.name}</CardTitle>
+              <CardSubtitle>{selectedDogs.breed}</CardSubtitle>
             </CardBody>
             <CardImg
               style={{
