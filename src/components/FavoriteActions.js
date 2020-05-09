@@ -1,19 +1,26 @@
 import React from "react";
 import { Button, Spinner } from "reactstrap";
+import { connect } from "react-redux";
+import { addDog, deleteDog } from "../redux/actions";
 
 const FavoriteActions = (props) => {
-  if (props.buttonLoading.find((id)=>{
-    return id === props.id
-  })) {
+  const getStatus = (dogId) => {
+    return props.favorites.find((favorite) => favorite.dogId === dogId);
+  };
+  if (
+    props.buttonLoading.find((id) => {
+      return id === props.id;
+    })
+  ) {
     return <Spinner color="success" />;
   } else
     return (
       <>
-        {props.getStatus(props.id) ? (
+        {getStatus(props.id) ? (
           <Button
             color="danger"
             onClick={() => {
-              props.toggle(props.id);
+              props.deleteDog(getStatus(props.id));
             }}
           >
             Favorilerden Cikar
@@ -22,7 +29,7 @@ const FavoriteActions = (props) => {
           <Button
             color="primary"
             onClick={() => {
-              props.toggle(props.id);
+              props.addDog(props.id);
             }}
           >
             Favoriye Ekle
@@ -32,4 +39,17 @@ const FavoriteActions = (props) => {
     );
 };
 
-export default FavoriteActions;
+const mapStateToProps = (state) => {
+  const { buttonLoading, favorites } = state.dogReducer;
+  return {
+    buttonLoading,
+    favorites,
+  };
+};
+
+const mapDispatchToProps = {
+  addDog,
+  deleteDog,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(FavoriteActions);
