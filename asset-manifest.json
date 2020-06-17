@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/dogs-app/static/css/main.985fe39e.chunk.css",
-    "main.js": "/dogs-app/static/js/main.58af769f.chunk.js",
-    "main.js.map": "/dogs-app/static/js/main.58af769f.chunk.js.map",
+    "main.js": "/dogs-app/static/js/main.0bef531a.chunk.js",
+    "main.js.map": "/dogs-app/static/js/main.0bef531a.chunk.js.map",
     "runtime-main.js": "/dogs-app/static/js/runtime-main.e0bcfdbe.js",
     "runtime-main.js.map": "/dogs-app/static/js/runtime-main.e0bcfdbe.js.map",
     "static/css/2.74189dbb.chunk.css": "/dogs-app/static/css/2.74189dbb.chunk.css",
     "static/js/2.1a08f208.chunk.js": "/dogs-app/static/js/2.1a08f208.chunk.js",
     "static/js/2.1a08f208.chunk.js.map": "/dogs-app/static/js/2.1a08f208.chunk.js.map",
     "index.html": "/dogs-app/index.html",
-    "precache-manifest.af05ffb279e7f7087251bd5a45bc00bd.js": "/dogs-app/precache-manifest.af05ffb279e7f7087251bd5a45bc00bd.js",
+    "precache-manifest.d3ec3acf5bd8d52b3507cd0574cee85a.js": "/dogs-app/precache-manifest.d3ec3acf5bd8d52b3507cd0574cee85a.js",
     "service-worker.js": "/dogs-app/service-worker.js",
     "static/css/2.74189dbb.chunk.css.map": "/dogs-app/static/css/2.74189dbb.chunk.css.map",
     "static/css/main.985fe39e.chunk.css.map": "/dogs-app/static/css/main.985fe39e.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.74189dbb.chunk.css",
     "static/js/2.1a08f208.chunk.js",
     "static/css/main.985fe39e.chunk.css",
-    "static/js/main.58af769f.chunk.js"
+    "static/js/main.0bef531a.chunk.js"
   ]
 }
