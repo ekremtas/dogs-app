@@ -2,7 +2,7 @@ import Homepage from "./containers/Homepage";
 
 const navs = [
     {
-        path: "/",
+        path: "/dogs-app/",
         title: "Anasayfa"
     },
     {
