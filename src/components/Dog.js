@@ -22,7 +22,7 @@ const Dog = ({ id, name, toggle, getStatus, image, buttonLoading }) => {
         </CardBody>
         <CardImg
           top
-          width="100%"
+          height="220em"
           src={image}
           alt={name + " image"}
           className="dogImg"
@@ -36,7 +36,7 @@ const Dog = ({ id, name, toggle, getStatus, image, buttonLoading }) => {
             {`${name} hakkında daha fazla bilgi alabilmek için detaya gidebilirsiniz.`}
           </CardText>
           <Row>
-            <Col md={{ size: 4, offset: 1 }}>
+            <Col md={{ size: 5}}>
               <FavoriteActions
                 buttonLoading={buttonLoading}
                 toggle={toggle}
@@ -44,7 +44,7 @@ const Dog = ({ id, name, toggle, getStatus, image, buttonLoading }) => {
                 getStatus={getStatus}
               />
             </Col>
-            <Col md={{ size: 3, offset: 4 }}>
+            <Col md={{ size: 5, offset: 2 }}>
               <CardLink>
                 <Link to={`/detail/${id}`}>Detay'a Git</Link>
               </CardLink>

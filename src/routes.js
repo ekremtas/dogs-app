@@ -7,7 +7,7 @@ import Detail from "./containers/Detail";
 
 const routes = [
     {
-        path: "/",
+        path: "/dogs-app/",
         exact: true,
         component: Homepage,
         title: "Anasayfa"
