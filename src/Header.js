@@ -27,7 +27,7 @@ const Header = () => {
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="mr-auto" navbar>
-{/*                        {
+                       {
                             navs.map((route) => {
                                 return <NavItem key={route.path}>
                                     <NavLink>
@@ -37,10 +37,11 @@ const Header = () => {
                                     </NavLink>
                                 </NavItem>
                             })
-                        }*/}
+                        }
+                        {/* 
                         <NavItem>
                             <NavLink>
-                                <Link to="/">
+                                <Link to="/dogs-app/">
                                     Anasayfa
                                 </Link>
                             </NavLink>
@@ -60,7 +61,7 @@ const Header = () => {
                             </NavLink>
                         </NavItem>
 
-
+*/}
 
 
 
